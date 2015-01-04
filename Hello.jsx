@@ -1,3 +1,5 @@
+var React = require('react');
+
 var Hello = React.createClass( {
   propTypes: {
     fname: React.PropTypes.string.isRequired,
@@ -8,3 +10,5 @@ var Hello = React.createClass( {
     return <span>Hello {this.props.fname} {this.props.lname}</span>;
   }
 } );
+
+module.exports = Hello;
