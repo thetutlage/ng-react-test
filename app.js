@@ -1,19 +1,18 @@
-require("./bower_components/angular/angular.js");
-require("./bower_components/react/react.js");
-require("./bower_components/react/JSXTransformer.js");
-require("./bower_components/ngReact/ngReact.js");
-// var Hello = require("./Hello.jsx");
+var angular = require("angular");
+var react = require("react");
 
-setTimeout( function() {
-  var app = angular.module('app', ['react']);
+require("ngReact");
 
-  app.controller('helloController', function($scope) {
-    $scope.person = {fname: 'Clark', lname: 'Kent'};
-  });
+var Hello = require("./Hello.jsx");
 
-  // app.directive('hello', function(reactDirective) {
-  //   return reactDirective(Hello);
-  // } );
+var app = angular.module('app', ['react']);
 
-  angular.bootstrap(document, ['app']);
-}, 1000 );
+app.controller('helloController', function($scope) {
+  $scope.person = {fname: 'Clark', lname: 'Kent'};
+});
+
+app.directive('hello', function(reactDirective) {
+  return reactDirective(Hello);
+} );
+
+angular.bootstrap(document, ['app']);
